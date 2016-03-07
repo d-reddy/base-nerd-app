@@ -1,7 +1,12 @@
-var React = require('react/addons');
+var React = require('react'),
+ ReactDOM = require('react-dom'),
+ Router = require('react-router').Router,
+ Provider= require('react-redux').Provider,
+ store = require('./store'),
+ routes = require('./routes');
 
-console.log('test');
-
-var List = require('./components/List.jsx');
-
-React.render(<List/>, app);
+ReactDOM.render(
+  <Provider store={store}>
+    <Router routes={routes}/>
+  </Provider>
+, app);

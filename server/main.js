@@ -2,8 +2,12 @@ var Express = require('express');
 
 var app = new Express();
 
-app.get('/',function(req,res){
+var router = Express.Router();
+
+router.get('/', function(req,res){
   res.render('./../app/index.ejs',{})
-})
-.use(Express.static(__dirname+'/../.tmp'))
-.listen(7777);
+});
+
+app.use('/', router)
+   .use(Express.static(__dirname+'/../.tmp'))
+   .listen(7777);
